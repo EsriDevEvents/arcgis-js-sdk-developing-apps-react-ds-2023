@@ -16,7 +16,7 @@ It is recommended that you have the long term support version of Node.js install
 
   npm run dev
 
-- Open a web browser and navigate to: http:localhost:5173
+- Open a web browser and navigate to: http://localhost:5173
 
 ## Credits:
 
