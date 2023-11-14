@@ -2,25 +2,25 @@ import { useRef, useEffect, useState } from "react";
 import MapView from "@arcgis/core/views/MapView";
 import WebMap from "@arcgis/core/WebMap";
 
-function loadMapView(
+const loadMapView = (
   mapProperties: __esri.WebMapProperties,
   mapViewProperties: __esri.MapViewProperties = {}
-) {
+) => {
   const map = new WebMap({ ...mapProperties });
 
   return new MapView({
     ...mapViewProperties,
     map,
   });
-}
+};
 
-function destroyMapView(view: MapView) {
+const destroyMapView = (view: MapView) => {
   if (!view) {
     return;
   }
 
   view.container = null as unknown as HTMLDivElement;
-}
+};
 
 export function useMapView(
   mapProperties: __esri.WebMapProperties,

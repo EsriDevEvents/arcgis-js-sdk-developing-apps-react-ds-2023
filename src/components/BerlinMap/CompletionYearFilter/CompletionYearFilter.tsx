@@ -18,8 +18,7 @@ export const CompletionYearFilter: React.FC<CompletionYearFilterProps> = (
   };
 
   const handleSliderChange = (_event: Event, value: number | number[]) => {
-    if (typeof value !== "number") throw Error("Value is not of type number.");
-    onCompletionYearChange(value);
+    if (typeof value === "number") onCompletionYearChange(value);
   };
 
   return (
@@ -27,7 +26,7 @@ export const CompletionYearFilter: React.FC<CompletionYearFilterProps> = (
       <CompletionYearSlider
         getAriaValueText={valueText}
         defaultValue={2023}
-        min={1150}
+        min={1200}
         max={new Date().getFullYear()}
         marks={marks}
         valueLabelDisplay="on"

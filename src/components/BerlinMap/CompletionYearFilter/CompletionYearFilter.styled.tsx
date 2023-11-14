@@ -4,7 +4,7 @@ const CompletionYearFilterContainer = styled(Box)({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  width: 610,
+  width: 590,
   height: 70,
   position: "absolute",
   left: 15,

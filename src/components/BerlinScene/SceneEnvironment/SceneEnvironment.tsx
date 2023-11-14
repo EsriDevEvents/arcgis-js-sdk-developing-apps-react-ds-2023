@@ -1,8 +1,8 @@
-import { IconButton, Typography } from "@mui/material";
+import { IconButton, Stack, Typography } from "@mui/material";
 import {
-  EnvironmentStack,
   EnvironmentTypography,
   SceneEnvironmentContainer,
+  WeatherContainer,
 } from "./SceneEnvironment.styled";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import AcUnitIcon from "@mui/icons-material/AcUnit";
@@ -35,7 +35,7 @@ export const SceneEnvironment: React.FC<SceneEnvironmentProps> = (
   const handleOnSunnyWeatherClick = () => {
     onWeatherChange(
       new SunnyWeather({
-        cloudCover: 0.5,
+        cloudCover: 0.3,
       })
     );
   };
@@ -80,20 +80,22 @@ export const SceneEnvironment: React.FC<SceneEnvironmentProps> = (
     <SceneEnvironmentContainer boxShadow={2}>
       <Typography fontWeight={"bold"}>Environment Settings</Typography>
       <EnvironmentTypography>Weather</EnvironmentTypography>
-      <EnvironmentStack direction="row" spacing={1}>
-        <IconButton onClick={handleOnSunnyWeatherClick}>
-          <WbSunnyIcon />
-        </IconButton>
-        <IconButton onClick={handleOnCloudyWeatherClick}>
-          <CloudIcon />
-        </IconButton>
-        <IconButton onClick={handleOnRainyWeatherClick}>
-          <WaterDropIcon />
-        </IconButton>
-        <IconButton onClick={handleOnSnowyWeatherClick}>
-          <AcUnitIcon />
-        </IconButton>
-      </EnvironmentStack>
+      <WeatherContainer>
+        <Stack direction="row" spacing={1}>
+          <IconButton onClick={handleOnSunnyWeatherClick}>
+            <WbSunnyIcon />
+          </IconButton>
+          <IconButton onClick={handleOnCloudyWeatherClick}>
+            <CloudIcon />
+          </IconButton>
+          <IconButton onClick={handleOnRainyWeatherClick}>
+            <WaterDropIcon />
+          </IconButton>
+          <IconButton onClick={handleOnSnowyWeatherClick}>
+            <AcUnitIcon />
+          </IconButton>
+        </Stack>
+      </WeatherContainer>
       <EnvironmentTypography>Sun Lightning</EnvironmentTypography>
       <DateTimePicker
         ampm={false}

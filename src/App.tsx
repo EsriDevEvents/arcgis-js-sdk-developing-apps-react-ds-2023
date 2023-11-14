@@ -1,15 +1,16 @@
 import { Box, CssBaseline, Toolbar, Typography, styled } from "@mui/material";
 import { NavBar } from "./components/AppBar/AppBar.styled";
-import {
-  AppDrawer,
-  appbarHeight,
-  drawerWidth,
-} from "./components/AppDrawer/AppDrawer";
+import { AppDrawer } from "./components/AppDrawer/AppDrawer";
 import { AppDrawerHeader } from "./components/AppDrawer/AppDrawer.styled";
 import { Route, Routes } from "react-router-dom";
 import { BerlinMap } from "./components/BerlinMap/BerlinMap";
 import { BerlinScene } from "./components/BerlinScene/BerlinScene";
 import { Home } from "./components/Home/Home";
+import {
+  appbarHeight,
+  drawerList,
+  drawerWidth,
+} from "./components/AppDrawer/config";
 
 const AppContent = styled(Box)<{ appbarheight: number; drawerwidth: number }>(
   ({ appbarheight, drawerwidth }) => ({
@@ -35,7 +36,7 @@ const App: React.FC = () => {
           </Typography>
         </Toolbar>
       </NavBar>
-      <AppDrawer />
+      <AppDrawer drawerWidth={drawerWidth} drawerList={drawerList} />
       <AppContent appbarheight={appbarHeight} drawerwidth={drawerWidth}>
         <AppDrawerHeader />
         <Routes>

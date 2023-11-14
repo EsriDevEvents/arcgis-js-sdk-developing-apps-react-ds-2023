@@ -2,8 +2,7 @@ import { useSceneView } from "../../hooks/useSceneView";
 import SunLighting from "@arcgis/core/views/3d/environment/SunLighting";
 import { ArcGISContainer } from "../ArcGISContainer/ArcGISContainer.styled";
 import { SceneEnvironment } from "./SceneEnvironment/SceneEnvironment";
-import * as reactiveUtils from "@arcgis/core/core/reactiveUtils";
-import { useEffect, useState } from "react";
+import { useLoadComponents } from "../../hooks/useLoadComponents";
 
 export const BerlinScene: React.FC = () => {
   const { ref, sceneView } = useSceneView(
@@ -26,16 +25,7 @@ export const BerlinScene: React.FC = () => {
     }
   );
 
-  const [loadComponents, setLoadComponents] = useState(false);
-
-  useEffect(() => {
-    if (!sceneView) return;
-    reactiveUtils
-      .whenOnce(() => sceneView.ready)
-      .then(() => {
-        setLoadComponents(true);
-      });
-  }, [sceneView]);
+  const loadComponents = useLoadComponents(sceneView);
 
   const handleOnWeatherChange = (
     weather:
@@ -44,13 +34,11 @@ export const BerlinScene: React.FC = () => {
       | __esri.RainyWeather
       | __esri.SnowyWeather
   ) => {
-    if (!sceneView) throw Error("SceneView is undefined.");
-    sceneView.environment.weather = weather;
+    if (sceneView) sceneView.environment.weather = weather;
   };
 
   const handleOnLightingChange = (lighting: __esri.SunLighting) => {
-    if (!sceneView) throw Error("SceneView is undefined.");
-    sceneView.environment.lighting = lighting;
+    if (sceneView) sceneView.environment.lighting = lighting;
   };
 
   return (

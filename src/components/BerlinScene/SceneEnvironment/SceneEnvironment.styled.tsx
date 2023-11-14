@@ -1,4 +1,4 @@
-import { Box, Stack, Typography, styled } from "@mui/material";
+import { Box, Typography, styled } from "@mui/material";
 
 const SceneEnvironmentContainer = styled(Box)({
   position: "absolute",
@@ -16,9 +16,10 @@ const EnvironmentTypography = styled(Typography)({
   marginTop: "5px",
 });
 
-const EnvironmentStack = styled(Stack)({
-  marginRight: 2,
-  marginLeft: 2,
+const WeatherContainer = styled(Box)({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
 });
 
-export { SceneEnvironmentContainer, EnvironmentTypography, EnvironmentStack };
+export { SceneEnvironmentContainer, EnvironmentTypography, WeatherContainer };

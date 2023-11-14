@@ -4,12 +4,12 @@ import { useMapView } from "../../hooks/useMapView";
 import Extent from "@arcgis/core/geometry/Extent";
 import FeatureLayer from "@arcgis/core/layers/FeatureLayer";
 import SpatialReference from "@arcgis/core/geometry/SpatialReference";
-import * as reactiveUtils from "@arcgis/core/core/reactiveUtils";
 import FeatureFilter from "@arcgis/core/layers/support/FeatureFilter";
 import { ArcGISContainer } from "../ArcGISContainer/ArcGISContainer.styled";
 import { CompletionYearFilter } from "./CompletionYearFilter/CompletionYearFilter";
 import { FunctionsFilter } from "./FunctionsFilter/FunctionsFilter";
 import { Zoom } from "./Zoom/Zoom";
+import { useLoadComponents } from "../../hooks/useLoadComponents";
 
 type MonumentsFilter = {
   buildingFunctions: string[];
@@ -34,8 +34,6 @@ export const BerlinMap: React.FC = () => {
       url: import.meta.env.VITE_BUS_STATIONS_FEATURE_LAYER,
     })
   );
-
-  const [loadComponents, setLoadComponents] = useState(false);
 
   const [filter, setFilter] = useState<MonumentsFilter>({
     buildingFunctions: [],
@@ -70,14 +68,7 @@ export const BerlinMap: React.FC = () => {
     }
   );
 
-  useEffect(() => {
-    if (!mapView) return;
-    reactiveUtils
-      .whenOnce(() => mapView.ready)
-      .then(() => {
-        setLoadComponents(true);
-      });
-  }, [mapView]);
+  const loadComponents = useLoadComponents(mapView);
 
   useEffect(() => {
     if (
