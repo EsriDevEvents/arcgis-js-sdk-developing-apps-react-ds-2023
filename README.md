@@ -2,7 +2,7 @@
 
 ## Description
 
-This is the source code of the demo application developed with React and ArcGIS Maps SDK for JavaScript, which was presented at the Esri European Developer Summit November 2023 during the session "ArcGIS Maps SDK for JavaScript: Developing Powerful Web Applications with React".
+Here you will find the source code of the demo application that was developed with React and ArcGIS Maps SDK for JavaScript and presented at the Esri European Developer Summit November 2023, during the session untitled "ArcGIS Maps SDK for JavaScript: Developing Powerful Web Applications with React".
 
 ## How to get started
 
