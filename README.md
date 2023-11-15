@@ -20,7 +20,7 @@ It is recommended that you have the long term support version of Node.js install
 
 ## Credits:
 
-Data sources used in this demo application:
+Data used in this demo application:
 
 Building footprints: © OpenStreetMap contributors, odbl/1-0, https://www.arcgis.com/home/item.html?id=652793c501a145b992a4cfd35b4c910e
 
